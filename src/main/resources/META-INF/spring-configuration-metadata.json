@@ -1,0 +1,15 @@
+{
+  "properties": [
+    {
+      "name": "cat.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否开启cat",
+      "defaultValue": false
+    },
+    {
+      "name": "cat.servers",
+      "type": "java.lang.String",
+      "description": "cat服务器集群"
+    }
+  ]
+}
