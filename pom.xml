@@ -10,7 +10,7 @@
     </parent>
     <groupId>site.abely</groupId>
     <artifactId>autoconfig</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>autoconfig</name>
     <description>Demo project for Spring Boot auto config</description>
 
@@ -20,6 +20,8 @@
         <cat.version>3.0.0</cat.version>
         <javax.servlet.api.version>4.0.1</javax.servlet.api.version>
         <org.slf4j.version>1.7.26</org.slf4j.version>
+        <mybatis.version>3.5.1</mybatis.version>
+        <mybatis.spring.version>2.0.1</mybatis.spring.version>
     </properties>
 
     <dependencies>
@@ -30,10 +32,31 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.verison}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${org.slf4j.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>2.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
 
         <dependency>
             <groupId>com.dianping.cat</groupId>
