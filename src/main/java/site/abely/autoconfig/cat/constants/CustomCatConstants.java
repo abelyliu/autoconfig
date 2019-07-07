@@ -1,4 +1,4 @@
-package site.abely.autoconfig.cat;
+package site.abely.autoconfig.cat.constants;
 
 /**
  * 自定义cat监控

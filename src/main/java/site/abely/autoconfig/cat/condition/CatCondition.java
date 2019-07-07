@@ -1,4 +1,4 @@
-package site.abely.autoconfig.cat;
+package site.abely.autoconfig.cat.condition;
 
 
 import com.dianping.cat.Cat;

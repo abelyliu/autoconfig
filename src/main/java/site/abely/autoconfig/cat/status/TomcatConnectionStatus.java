@@ -1,4 +1,4 @@
-package site.abely.autoconfig.cat;
+package site.abely.autoconfig.cat.status;
 
 import com.dianping.cat.status.StatusExtension;
 
@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  *
  * @author abely
  */
-public class TomcatConectionStatus implements StatusExtension {
+public class TomcatConnectionStatus implements StatusExtension {
     private ThreadPoolExecutor httpThreadPool;
 
     public void setHttpThreadPool(ThreadPoolExecutor httpThreadPool) {

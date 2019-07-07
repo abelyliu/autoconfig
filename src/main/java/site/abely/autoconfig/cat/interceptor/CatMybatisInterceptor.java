@@ -1,4 +1,4 @@
-package site.abely.autoconfig.cat;
+package site.abely.autoconfig.cat.interceptor;
 
 /**
  * 检测sql耗时
@@ -25,6 +25,7 @@ import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.type.TypeHandlerRegistry;
+import site.abely.autoconfig.cat.constants.CustomCatConstants;
 
 import java.text.DateFormat;
 import java.util.Date;
