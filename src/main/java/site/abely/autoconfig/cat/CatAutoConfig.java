@@ -3,22 +3,17 @@ package site.abely.autoconfig.cat;
 import com.dianping.cat.Cat;
 import com.dianping.cat.servlet.CatFilter;
 import com.dianping.cat.status.StatusExtensionRegister;
-import feign.Client;
-import feign.CustomClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.web.context.WebServerInitializedEvent;
 import org.springframework.boot.web.embedded.tomcat.TomcatWebServer;
 import org.springframework.boot.web.server.WebServer;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.cloud.netflix.ribbon.SpringClientFactory;
-import org.springframework.cloud.openfeign.ribbon.CachingSpringLoadBalancerFactory;
-import org.springframework.cloud.openfeign.ribbon.LoadBalancerFeignClient;
+import org.springframework.cloud.openfeign.FeignFactoryProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.Conditional;
@@ -64,7 +59,7 @@ public class CatAutoConfig {
      * @return
      */
     @Bean
-    public static BeanPostProcessor myBatisPostProcessorConfigurer() {
+    public BeanPostProcessor myBatisPostProcessorConfigurer() {
         return new CatMybatisBeanPostProcessor();
     }
 
@@ -85,17 +80,22 @@ public class CatAutoConfig {
     }
 
     @Bean
+    public BeanPostProcessor feignFactoryProcessor() {
+        return new FeignFactoryProcessor();
+    }
+
+    @Bean
     public CatSpringDataRedisPlugin catSpringDataRedisPlugin() {
         return new CatSpringDataRedisPlugin();
     }
 
-    @Bean
-    @ConditionalOnMissingClass({"ApacheHttpClient.class", "OkHttpClient.class"})
-    public Client feignClient(CachingSpringLoadBalancerFactory cachingFactory,
-                              SpringClientFactory clientFactory) {
-        return new LoadBalancerFeignClient(new CustomClient(null, null), cachingFactory,
-                clientFactory);
-    }
+//    @Bean
+//    @ConditionalOnMissingClass({"ApacheHttpClient.class", "OkHttpClient.class"})
+//    public Client feignClient(CachingSpringLoadBalancerFactory cachingFactory,
+//                              SpringClientFactory clientFactory) {
+//        return new LoadBalancerFeignClient(new CustomClient(null, null), cachingFactory,
+//                clientFactory);
+//    }
 
     @EventListener(value = {ContextRefreshedEvent.class})
     public void afterRefreshed() throws NoSuchFieldException, IllegalAccessException {
