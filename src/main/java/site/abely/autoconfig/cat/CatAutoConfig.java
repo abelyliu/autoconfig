@@ -26,6 +26,7 @@ import redis.clients.util.Pool;
 import site.abely.autoconfig.cat.bean.post.processor.CatMybatisBeanPostProcessor;
 import site.abely.autoconfig.cat.condition.CatCondition;
 import site.abely.autoconfig.cat.interceptor.CatSpringDataRedisPlugin;
+import site.abely.autoconfig.cat.interceptor.FeignClientAspect;
 import site.abely.autoconfig.cat.status.JedisStatus;
 import site.abely.autoconfig.cat.status.ThreadPoolTaskExecutorStatus;
 import site.abely.autoconfig.cat.status.TomcatConnectionStatus;
@@ -80,8 +81,8 @@ public class CatAutoConfig {
     }
 
     @Bean
-    public BeanPostProcessor feignFactoryProcessor() {
-        return new FeignFactoryProcessor();
+    public FeignClientAspect feignClientAspect() {
+        return new FeignClientAspect();
     }
 
     @Bean
