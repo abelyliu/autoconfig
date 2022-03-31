@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <spring.verison>2.1.6.RELEASE</spring.verison>
+        <spring.verison>2.5.12</spring.verison>
         <cat.version>3.0.0</cat.version>
         <javax.servlet.api.version>4.0.1</javax.servlet.api.version>
         <org.slf4j.version>1.7.26</org.slf4j.version>
